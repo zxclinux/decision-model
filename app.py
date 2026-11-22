@@ -1,23 +1,28 @@
 """FastAPI server: POST /v1/systemone.  Run: uvicorn app:app --port 8000"""
 from contextlib import asynccontextmanager
-from typing import Dict, List, Literal, Optional, Union
+from typing import Annotated, Dict, List, Literal, Optional, Union
 
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, StringConstraints
 
 import decision_model
 
+# Character limits are a cheap first guard; the exact token limit is checked in decision_model.
+Option = Annotated[str, StringConstraints(max_length=500)]
+
 
 class Question(BaseModel):
+    """choice: criteria {key: description} or [keys]; score: criteria [levels, lowest first]; noul: no criteria."""
     type: Literal["choice", "noul", "score"]
-    instructions: str = ""
-    criteria: Optional[Union[Dict[str, str], List[str]]] = None
+    instructions: str = Field(default="", max_length=2000)
+    criteria: Optional[Union[Dict[Annotated[str, StringConstraints(max_length=100)], Option],
+                             List[Option]]] = None  # option count is checked in decision_model
 
 
 class SystemOneRequest(BaseModel):
     model: Optional[str] = None
-    state: str
-    questions: Dict[str, Question] = Field(min_length=1)
+    state: str = Field(min_length=1, max_length=100_000)  # longer texts are truncated to max_state_tokens
+    questions: Dict[str, Question] = Field(min_length=1, max_length=16)
 
     model_config = {"json_schema_extra": {"examples": [{
         "model": "s1-qwen3-1.7b-lora",
@@ -29,6 +34,9 @@ class SystemOneRequest(BaseModel):
                                         "technical": "Баги, збої, помилки системи",
                                         "sales": "Ціни, нові контракти",
                                         "other": "Усе інше"}},
+            "frustration": {"type": "score", "instructions": "Наскільки клієнт роздратований?",
+                            "criteria": ["Спокійний, нейтральний тон", "Помірне невдоволення",
+                                         "Сильне роздратування або погрози піти"]},
             "wants_refund": {"type": "noul", "instructions": "Клієнт явно просить повернути кошти?"},
         },
     }]}}
