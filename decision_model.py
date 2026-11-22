@@ -4,7 +4,7 @@ Every question becomes a multiple-choice test with options labelled A..H. The mo
 (one forward pass, nothing is generated) and we take the logits of the option letters at the last position:
 P(option) = softmax(letter logits / T), where T is the temperature fitted on the validation set.
 
-Adapter: decision_lora_v1 by default, DECISION_ADAPTER=<folder> selects another one.
+Adapter: decision_lora_v2 by default, DECISION_ADAPTER=decision_lora_v1 selects v1.
 """
 import json
 import os
@@ -19,7 +19,7 @@ from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 ROOT = Path(__file__).resolve().parent
-ADAPTER_DIR = ROOT / os.environ.get("DECISION_ADAPTER", "decision_lora_v1")
+ADAPTER_DIR = ROOT / os.environ.get("DECISION_ADAPTER", "decision_lora_v2")
 CONFIG_PATH = ADAPTER_DIR / "decision_config.json"
 if not CONFIG_PATH.is_file():
     raise FileNotFoundError(f"{CONFIG_PATH} not found: put the trained adapter folder into the repo root")

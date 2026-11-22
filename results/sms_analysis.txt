@@ -1,0 +1,47 @@
+=== v1: n = 400, spam share = 0.50, accuracy = 0.667
+
+confusion (rows: gold spam, cols: predicted spam)
+pred_yes  False  True 
+gold_yes              
+False       200      0
+True        133     67
+
+mean P(spam): spam 0.418 | ham 0.127
+ROC AUC of P(spam): 0.914   (how well P(spam) separates spam from ham at any threshold)
+
+by question:
+                                           question   n   acc  spam_recall  ham_false_pos
+Is this an unsolicited advertising or scam message? 122 0.746        0.466            0.0
+                              Is this message spam? 120 0.692        0.471            0.0
+Чи це небажана реклама або шахрайське повідомлення?  83 0.675        0.036            0.0
+                         Чи це повідомлення — спам?  75 0.493        0.136            0.0
+
+decision threshold on P(spam):
+   0.5: acc 0.667  spam recall 0.335  ham false pos 0.000
+   0.3: acc 0.787  spam recall 0.635  ham false pos 0.060
+   0.2: acc 0.815  spam recall 0.850  ham false pos 0.220
+   0.1: acc 0.733  spam recall 0.980  ham false pos 0.515
+
+=== v2: n = 400, spam share = 0.50, accuracy = 0.892
+
+confusion (rows: gold spam, cols: predicted spam)
+pred_yes  False  True 
+gold_yes              
+False       166     34
+True          9    191
+
+mean P(spam): spam 0.937 | ham 0.198
+ROC AUC of P(spam): 0.964   (how well P(spam) separates spam from ham at any threshold)
+
+by question:
+                                           question   n   acc  spam_recall  ham_false_pos
+Is this an unsolicited advertising or scam message? 122 0.910        0.983          0.156
+                              Is this message spam? 120 0.867        0.929          0.220
+Чи це небажана реклама або шахрайське повідомлення?  83 0.904        0.964          0.127
+                         Чи це повідомлення — спам?  75 0.893        0.955          0.194
+
+decision threshold on P(spam):
+   0.5: acc 0.892  spam recall 0.955  ham false pos 0.170
+   0.3: acc 0.870  spam recall 0.960  ham false pos 0.220
+   0.2: acc 0.860  spam recall 0.970  ham false pos 0.250
+   0.1: acc 0.807  spam recall 0.975  ham false pos 0.360

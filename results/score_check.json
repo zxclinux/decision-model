@@ -1,0 +1,161 @@
+{
+ "summary": {
+  "n": 15,
+  "exact_level_acc": 0.8,
+  "spearman_true_vs_score": 0.8785714285714284,
+  "mae_levels": 0.39202,
+  "mean_abs_fwd_minus_rev": 0.15518000000000004
+ },
+ "rows": [
+  {
+   "scale": "frustration",
+   "K": 3,
+   "level": 0,
+   "score": 0.5443,
+   "score_rev": 0.6265000000000001,
+   "argmax": 0,
+   "conf": 0.5709,
+   "text": "Добрий день! Підкажіть, будь ласка, як змінит"
+  },
+  {
+   "scale": "frustration",
+   "K": 3,
+   "level": 0,
+   "score": 0.9145,
+   "score_rev": 0.8154999999999999,
+   "argmax": 1,
+   "conf": 0.5633,
+   "text": "Hi, could you tell me when the new plan becom"
+  },
+  {
+   "scale": "frustration",
+   "K": 3,
+   "level": 1,
+   "score": 1.0863,
+   "score_rev": 1.0449000000000002,
+   "argmax": 1,
+   "conf": 0.8105,
+   "text": "Вже другий раз замовлення приходить із запізн"
+  },
+  {
+   "scale": "frustration",
+   "K": 3,
+   "level": 1,
+   "score": 1.1487,
+   "score_rev": 0.9577,
+   "argmax": 1,
+   "conf": 0.7248,
+   "text": "I'm a bit disappointed, the app keeps logging"
+  },
+  {
+   "scale": "frustration",
+   "K": 3,
+   "level": 2,
+   "score": 1.364,
+   "score_rev": 1.1907999999999999,
+   "argmax": 1,
+   "conf": 0.5009,
+   "text": "Це просто знущання! Третій тиждень без інтерн"
+  },
+  {
+   "scale": "frustration",
+   "K": 3,
+   "level": 2,
+   "score": 1.53,
+   "score_rev": 1.5296,
+   "argmax": 2,
+   "conf": 0.5593,
+   "text": "This is unacceptable. I've been charged twice"
+  },
+  {
+   "scale": "urgency",
+   "K": 3,
+   "level": 0,
+   "score": 0.4022,
+   "score_rev": 0.6129,
+   "argmax": 0,
+   "conf": 0.6899,
+   "text": "When you have time, could you update the logo"
+  },
+  {
+   "scale": "urgency",
+   "K": 3,
+   "level": 1,
+   "score": 1.1572,
+   "score_rev": 1.0341,
+   "argmax": 1,
+   "conf": 0.8008,
+   "text": "The export to CSV is broken for some users, p"
+  },
+  {
+   "scale": "urgency",
+   "K": 3,
+   "level": 2,
+   "score": 1.5395,
+   "score_rev": 1.5584,
+   "argmax": 2,
+   "conf": 0.6056,
+   "text": "Production is down, all customers get error 5"
+  },
+  {
+   "scale": "urgency",
+   "K": 3,
+   "level": 2,
+   "score": 1.2684,
+   "score_rev": 1.288,
+   "argmax": 1,
+   "conf": 0.5707,
+   "text": "Сервер платежів не працює, усі оплати падають"
+  },
+  {
+   "scale": "review",
+   "K": 5,
+   "level": 0,
+   "score": 0.1887,
+   "score_rev": 0.24180000000000001,
+   "argmax": 0,
+   "conf": 0.8746,
+   "text": "Жахливий сервіс, гроші на вітер, нікому не ра"
+  },
+  {
+   "scale": "review",
+   "K": 5,
+   "level": 1,
+   "score": 1.3537,
+   "score_rev": 1.9526,
+   "argmax": 1,
+   "conf": 0.5191,
+   "text": "Доставка затрималась, і товар трохи подряпани"
+  },
+  {
+   "scale": "review",
+   "K": 5,
+   "level": 2,
+   "score": 2.1083,
+   "score_rev": 2.5102,
+   "argmax": 2,
+   "conf": 0.6743,
+   "text": "Товар відповідає опису. Нічого особливого."
+  },
+  {
+   "scale": "review",
+   "K": 5,
+   "level": 3,
+   "score": 3.3502,
+   "score_rev": 3.6159,
+   "argmax": 3,
+   "conf": 0.5051,
+   "text": "Хороша якість, швидко доставили, задоволений."
+  },
+  {
+   "scale": "review",
+   "K": 5,
+   "level": 4,
+   "score": 3.6719,
+   "score_rev": 3.7205,
+   "argmax": 4,
+   "conf": 0.7202,
+   "text": "Неймовірно! Найкраща покупка цього року, усім"
+  }
+ ]
+}
